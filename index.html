@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rastreio | MAGNI Automotive</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #38B6FF;
+    --platinum: #EDEFF2;
+    --slate: #70767D;
+    --onyx: #23272B;
+    --font: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font); background: var(--platinum); color: var(--onyx); display: flex; flex-direction: column; min-height: 100vh; }
+
+  header { background: var(--onyx); color: #fff; padding: 14px 16px; border-bottom: 3px solid var(--azul); }
+  .bar { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .logo { display: flex; align-items: center; text-decoration: none; color: #fff; }
+  .logo-svg { height: 28px; width: auto; display: block; }
+  .logo .wordmark { font-weight: 700; letter-spacing: .28em; font-size: 18px; }
+  .logo .wordmark span { color: var(--azul); }
+  .site { color: #fff; text-decoration: none; font-size: 13px; opacity: .8; }
+  .site:hover { opacity: 1; color: var(--azul); }
+
+  main { flex: 1; }
+  .card { max-width: 520px; width: calc(100% - 32px); margin: 40px auto; background: #fff; border-radius: 12px; padding: 32px 24px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,.08); border-top: 3px solid var(--azul); }
+  .kicker { color: var(--azul); font-weight: 700; font-size: 12px; letter-spacing: .2em; margin-bottom: 10px; }
+  .card h1 { font-size: 24px; margin-bottom: 8px; }
+  .card p { color: var(--slate); font-size: 15px; line-height: 1.5; }
+
+  form { margin-top: 22px; display: flex; flex-direction: column; gap: 10px; }
+  .field { display: flex; gap: 8px; }
+  input { flex: 1; min-width: 0; font-family: var(--font); font-size: 16px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 14px; border: 1px solid #d5d9de; border-radius: 8px; background: var(--platinum); color: var(--onyx); }
+  input:focus { outline: none; border-color: var(--azul); background: #fff; }
+  input::placeholder { font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--slate); }
+  .paste { font-family: var(--font); font-size: 14px; padding: 0 14px; border: 1px solid var(--azul); background: #fff; color: var(--onyx); border-radius: 8px; cursor: pointer; }
+  .btn { font-family: var(--font); background: var(--onyx); color: #fff; border: 0; padding: 15px 24px; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; }
+  .btn:hover { box-shadow: inset 0 -2px 0 var(--azul); }
+  .btn:disabled { opacity: .6; cursor: default; }
+  .msg { min-height: 18px; font-size: 13px; color: #b3261e; }
+
+  /* Tela de passagem */
+  .going .code-box { margin: 20px 0 16px; background: var(--platinum); border-radius: 8px; padding: 12px; font-weight: 700; letter-spacing: .08em; }
+  .progress { height: 3px; background: var(--platinum); border-radius: 3px; overflow: hidden; margin: 8px 0 12px; }
+  .progress i { display: block; height: 100%; width: 0; background: var(--azul); }
+  .progress i.run { width: 100%; transition: width linear; }
+  .small { font-size: 13px; color: var(--slate); }
+  .small a { color: var(--onyx); }
+
+  .extra { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--platinum); font-size: 14px; color: var(--slate); }
+  .extra a { color: var(--onyx); font-weight: 700; text-decoration-color: var(--azul); }
+
+  footer { text-align: center; font-size: 12px; color: var(--slate); padding: 12px 16px 20px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="logo" id="logoLink" href="#">
+      <svg class="logo-svg" role="img" aria-label="MAGNI Automotive" height="28" viewBox="0 0 425 148" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M41.715 0L65.7224 0C74.0654 0 75.5978 4.22354 75.5978 7.91915C75.5978 9.32698 75.4275 10.7348 75.2573 11.9667H76.1086C76.6194 8.79905 78.4923 0 90.4109 0L115.27 0C117.994 0 125.145 0 125.145 8.2711C125.145 9.50297 124.975 10.7348 97.7323 144.304C97.2215 146.24 95.5188 147.824 93.6459 147.824H73.5546C72.0222 147.824 70.6601 146.768 70.6601 145.184C70.6601 145.008 70.8304 144.656 95.8594 22.7015H87.5164L62.4874 144.48C61.9766 146.416 60.1037 148 58.2307 148H37.9692C36.4368 148 35.2449 146.944 35.2449 145.36C35.2449 145.008 35.4152 144.832 60.4442 22.7015H52.2715L27.2425 144.304C26.7317 146.24 25.029 147.824 23.1561 147.824H2.89451C1.36212 147.824 0 146.768 0 145.184C0 145.008 0.170268 144.656 27.2425 12.3187C29.7964 0 38.6502 0 41.715 0Z" fill="#009BF5"/>
+<path d="M157.804 0L196.965 0C199.689 0 206.67 0.175979 206.67 8.2711C206.67 9.50297 206.5 10.7348 178.747 144.304C178.236 146.24 176.533 147.824 174.66 147.824H154.399C152.866 147.824 151.504 146.768 151.504 145.184C151.504 145.008 151.674 144.656 161.55 95.7336H153.377L143.502 144.304C142.991 146.24 141.288 147.824 139.415 147.824H119.154C117.621 147.824 116.259 146.768 116.259 145.184C116.259 145.008 116.43 144.656 143.502 12.3187C146.056 0.17598 154.739 0 157.804 0ZM168.531 22.7015L158.145 73.2081H166.317L176.703 22.7015H168.531Z" fill="#009BF5"/>
+<path d="M247.659 147.824H209.009C206.284 147.824 198.963 147.824 198.963 139.553C198.963 138.321 199.133 137.089 224.843 12.3187C227.397 0 236.251 0 239.316 0L286.65 0C288.352 0 289.374 1.23186 289.374 2.81569L286.139 19.1819C285.798 21.1177 283.925 22.7015 282.052 22.7015L249.872 22.7015L228.759 125.122H236.932L247.659 72.8561C247.999 70.9203 249.872 69.3365 251.745 69.3365H272.007C273.709 69.3365 274.731 70.5684 274.731 72.1522L261.961 135.505C259.577 147.824 250.724 147.824 247.659 147.824Z" fill="#009BF5"/>
+<path d="M312.144 0L330.192 0C331.895 0 332.917 1.23186 332.917 2.81569L339.387 75.6718L354.2 3.51961C354.54 1.58383 356.413 0 358.286 0L375.994 0C377.696 0 378.718 1.23186 378.718 2.81569L349.773 144.304C349.262 146.24 347.559 147.824 345.686 147.824H327.979C326.447 147.824 325.084 146.768 325.084 145.184C325.084 145.008 325.255 144.656 317.763 77.4316L303.971 144.304C303.461 146.24 301.758 147.824 299.885 147.824H281.837C280.305 147.824 278.942 146.768 278.942 145.184C278.942 145.008 279.113 144.656 308.058 3.51961C308.398 1.58383 310.271 0 312.144 0Z" fill="#009BF5"/>
+<path d="M401.467 0L421.729 0C423.431 0 424.453 1.23186 424.453 2.81569L395.508 144.304C394.997 146.24 393.294 147.824 391.421 147.824H371.16C369.627 147.824 368.265 146.768 368.265 145.184C368.265 145.008 368.436 144.656 397.381 3.51961C397.721 1.58383 399.594 0 401.467 0Z" fill="#009BF5"/>
+</svg>
+    </a>
+    <a class="site" id="siteLink" href="#"></a>
+  </div>
+</header>
+
+<main>
+  <!-- Tela 1: cliente cola o código -->
+  <section class="card" id="busca">
+    <h1>Acompanhe seu pedido</h1>
+    <p>Cole abaixo o código de rastreio que enviamos na mensagem.</p>
+    <form id="form" novalidate>
+      <div class="field">
+        <input id="codigo" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Ex.: AA123456789BR" aria-label="Código de rastreio">
+        <button type="button" class="paste" id="colar">Colar</button>
+      </div>
+      <button type="submit" class="btn" id="rastrear">Rastrear</button>
+      <div class="msg" id="msg"></div>
+    </form>
+    <div class="extra">
+      <!-- Espaço de marca: edite ou apague -->
+      Enquanto o pedido chega, <a class="siteHref" href="#">conheça a linha completa MAGNI</a>.
+    </div>
+  </section>
+
+  <!-- Tela 2: passagem pela marca antes de abrir o Melhor Rastreio -->
+  <section class="card going" id="passagem" hidden>
+    <h1>Seu pedido está a caminho</h1>
+    <p>Obrigado por escolher a MAGNI. Seu pedido foi preparado com cuidado e já está com a transportadora.</p>
+    <div class="code-box" id="codigoTxt"></div>
+    <div class="progress"><i id="barra"></i></div>
+    <div class="small">Abrindo o rastreio… <a id="abrirJa" href="#">Abrir agora</a></div>
+    <div class="extra">
+      <!-- Espaço de marca: edite ou apague -->
+      Ao receber, confira como instalar e cuidar do seu produto em <a class="siteHref" href="#">magniofc.com.br</a>.
+    </div>
+  </section>
+</main>
+
+<footer>MAGNI Automotive Ltda. · CNPJ 58.406.682/0001-17</footer>
+
+<script>
+  /* ===== CONFIGURAÇÃO ===== */
+  const CONFIG = {
+    siteUrl: "https://magniofc.com.br",
+    siteLabel: "magniofc.com.br",
+    rastreioBase: "https://melhorrastreio.com.br/rastreio/",  // + código (confirmar formato)
+    segundos: 5                                              // tempo na tela da marca antes de abrir
+  };
+
+  const $ = id => document.getElementById(id);
+  $("logoLink").href = CONFIG.siteUrl;
+  $("siteLink").href = CONFIG.siteUrl;
+  $("siteLink").textContent = CONFIG.siteLabel;
+  document.querySelectorAll(".siteHref").forEach(a => a.href = CONFIG.siteUrl);
+
+  // Extrai o código mesmo se o cliente colar a mensagem inteira
+  function limpar(txt) {
+    const t = (txt || "").toUpperCase();
+    const correios = t.match(/[A-Z]{2}\d{9}[A-Z]{2}/);
+    if (correios) return correios[0];
+    return t.replace(/[^A-Z0-9]/g, "");
+  }
+
+  $("colar").addEventListener("click", async () => {
+    try {
+      const txt = await navigator.clipboard.readText();
+      $("codigo").value = limpar(txt);
+      $("msg").textContent = "";
+    } catch {
+      $("codigo").focus();
+      $("msg").textContent = "Toque no campo e cole o código.";
+    }
+  });
+
+  $("form").addEventListener("submit", e => {
+    e.preventDefault();
+    const codigo = limpar($("codigo").value);
+    if (codigo.length < 8) {
+      $("msg").textContent = "Código inválido. Confira a mensagem do pedido.";
+      return;
+    }
+    irPara(codigo);
+  });
+
+  // Link com código: rastreio.html?codigo=AA123456789BR → pula o campo e vai direto
+  const codigoUrl = limpar(new URLSearchParams(location.search).get("codigo"));
+  if (codigoUrl.length >= 8) irPara(codigoUrl);
+
+  function irPara(codigo) {
+    const destino = CONFIG.rastreioBase + encodeURIComponent(codigo);
+
+    $("codigoTxt").textContent = codigo;
+    $("abrirJa").href = destino;
+    $("busca").hidden = true;
+    $("passagem").hidden = false;
+
+    const barra = $("barra");
+    barra.style.transitionDuration = CONFIG.segundos + "s";
+    requestAnimationFrame(() => requestAnimationFrame(() => barra.classList.add("run")));
+    setTimeout(() => { location.href = destino; }, CONFIG.segundos * 1000);
+  }
+
+  // Se o cliente voltar do Melhor Rastreio, mostra de novo o campo
+  window.addEventListener("pageshow", ev => {
+    if (ev.persisted) {
+      $("passagem").hidden = true;
+      $("busca").hidden = false;
+      $("barra").classList.remove("run");
+    }
+  });
+</script>
+</body>
+</html>
